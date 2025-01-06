@@ -1,0 +1,11 @@
+server:
+  port: 8080 # Порт для API Gateway
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: http://localhost:8081 # URL вашого UserService
+          predicates:
+            - Path=/users/** # Маршрутизація всіх запитів із префіксом /users
